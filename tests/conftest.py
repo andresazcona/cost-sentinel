@@ -33,7 +33,7 @@ def make_cfg():
 
     def make(days_ahead: int = 0, **overrides) -> Config:
         now = datetime.now(UTC) + timedelta(days=days_ahead)
-        return Config(regions=(REGION,), now=now, **overrides)
+        return Config(**{"regions": (REGION,), "now": now, **overrides})
 
     return make
 
