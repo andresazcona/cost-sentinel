@@ -1,0 +1,34 @@
+cost-sentinel: ~$193.56/month of waste in 14 findings
+Generated 2026-10-12 08:00 UTC. Mode: DRY-RUN (no changes made). 3 allowlisted resources skipped.
+Prices are approximate us-east-1 list prices.
+
+By check
+check               count  $/month
+------------------  -----  -------
+unattached_volume   3      74.00
+old_snapshot        3      49.00
+idle_load_balancer  2      32.86
+stopped_instance    2      30.40
+unassociated_eip    2      7.30
+missing_tags        2      0.00
+
+By region
+region     count  $/month
+---------  -----  -------
+us-east-1  8      148.08
+eu-west-1  6      45.48
+
+Top 6 offenders
+$/month  check               region     resource                          detail
+-------  ------------------  ---------  --------------------------------  ------------------------------
+50.00    unattached_volume   us-east-1  vol-0a1b2c3d4e5f60001             500 GiB gp2, available 94 d
+40.00    old_snapshot        us-east-1  snap-0aaa111bbb222ccc3            800 GiB, 212 d old, no AMI
+24.00    stopped_instance    us-east-1  i-0123456789abcdef0               stopped 63 d, 300 GiB EBS
+16.43    idle_load_balancer  us-east-1  app/legacy-api/50dc6c495c0c9188   ALB with no healthy targets
+16.43    idle_load_balancer  eu-west-1  net/staging-nlb/6d0ecf831eec9f09  NLB with no registered targets
+16.00    unattached_volume   eu-west-1  vol-0a1b2c3d4e5f60002             200 GiB gp3, available 41 d
+
+Remediation
+resource                check         outcome
+----------------------  ------------  ---------------------
+snap-0aaa111bbb222ccc3  old_snapshot  would delete snapshot
