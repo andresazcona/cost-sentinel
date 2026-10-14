@@ -1,0 +1,21 @@
+[project]
+name = "cost-sentinel"
+version = "0.1.0"
+description = "Weekly AWS waste finder: reports (and optionally cleans up) forgotten resources."
+requires-python = ">=3.12"
+license = "MIT"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "S"]
+ignore = ["S101"]  # assert is how pytest works
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S106"]

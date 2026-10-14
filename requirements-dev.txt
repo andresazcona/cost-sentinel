@@ -1,0 +1,5 @@
+# boto3 ships with the Lambda Python 3.12 runtime; it is only pinned here for tests.
+boto3==1.43.113
+moto[ec2,elbv2,ses,ssm,resourcegroupstaggingapi]==5.2.4
+pytest==9.1.1
+ruff==0.17.0
